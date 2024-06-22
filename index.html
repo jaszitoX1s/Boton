@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Reconfortante</title>
+    <title>Mensaje de Ánimo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="container triste">
-        <button id="comfortButton" class="triste">Presiona aquí cuando te sientas triste</button>
-        <p id="message"></p>
-        <div id="flowerContainer"></div>
+<body class="sad-background">
+    <div class="container sad-theme" id="container">
+        <h1>Si te sientes triste...</h1>
+        <button id="messageButton">Presiona aquí cuando te sientas triste</button>
+        <div id="message" class="hidden">
+            <p>“Aunque hoy parezca un día gris, recuerda que el sol siempre está detrás de las nubes, esperando para brillar. Tú eres como ese sol, y aunque ahora estés pasando por un momento difícil, sé que pronto volverás a brillar con toda tu luz, TE QUIERO MUCHO. ATT: MARCO”.</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
