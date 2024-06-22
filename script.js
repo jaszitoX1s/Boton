@@ -1,30 +1,32 @@
 // script.js
 
-document.getElementById('comfortButton').addEventListener('click', function() {
-    var message = "Aunque hoy parezca un día gris, recuerda que el sol siempre está detrás de las nubes, esperando para brillar. " +
-                  "Tú eres como ese sol, y aunque ahora estés pasando por un momento difícil, sé que pronto volverás a brillar con toda tu luz. " +
-                  "TE QUIERO MUCHO. ATT: MARCO";
-    
-    var container = document.querySelector('.container');
-    var button = document.getElementById('comfortButton');
-    var body = document.querySelector('body');
+document.getElementById('messageButton').addEventListener('click', function() {
+    const container = document.getElementById('container');
+    const messageDiv = document.getElementById('message');
+    const button = this;
+    const body = document.body;
 
-    document.getElementById('message').textContent = message;
-    document.getElementById('message').classList.add('visible');
-    container.classList.add('alegre');
-    button.classList.add('alegre');
-    body.classList.add('alegre');
+    // Mostrar el mensaje y cambiar a la decoración feliz
+    if (messageDiv.classList.contains('hidden')) {
+        messageDiv.classList.remove('hidden');
+        messageDiv.style.display = 'block';
+        container.classList.remove('sad-theme');
+        container.classList.add('happy-theme');
+        body.classList.remove('sad-background');
+        body.classList.add('happy-background');
+        button.style.display = 'none';
 
-    createFlowers();
-});
-
-function createFlowers() {
-    var flowerContainer = document.getElementById('flowerContainer');
-    for (let i = 0; i < 30; i++) {
-        let flower = document.createElement('div');
-        flower.classList.add('flower');
-        flower.style.left = Math.random() * 100 + '%';
-        flower.style.animationDelay = Math.random() * 2 + 's';
-        flowerContainer.appendChild(flower);
+        // Crear flores y mostrar animación
+        for (let i = 0; i < 5; i++) {
+            let flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = `${50 + i * 60}px`;
+            flower.style.top = `${200}px`;
+            flower.style.animationDelay = `${i * 0.5}s`;
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                flower.style.display = 'block';
+            }, i * 500);
+        }
     }
-}
+});
